@@ -1,51 +1,56 @@
-function suma() {
-    if (document.getElementById("numericoUno").value === "" || document.getElementById("numericoDos").value === "") {
-        document.getElementById("texto-resultado").innerHTML = "Uno de los campos está vacío";
-        document.getElementById("valor-resultado").innerHTML = "";
-    } else {
-        var num1 = parseFloat(document.getElementById("numericoUno").value);
-        var num2 = parseFloat(document.getElementById("numericoDos").value);
-
-        document.getElementById("texto-resultado").innerHTML = "El resultado de la suma es ";
-        document.getElementById("valor-resultado").innerHTML = num1 + num2;
+const carrito = [
+    {
+        id: 198752,
+        name: "Tinta DJ27 Color",
+        price: 52.95,
+        count: 3,
+        premium: true
+    },
+    {
+        id: 75621,
+        name: "Impresora ticketera PRO-201",
+        price: 32.75,
+        count: 2,
+        premium: true
+    },
+    {
+        id: 54657,
+        name: "Caja de rollos de papel para ticketera",
+        price: 5.95,
+        count: 3,
+        premium: false
+    },
+    {
+        id: 3143,
+        name: "Caja de folios DIN-A4 80gr",
+        price: 9.95,
+        count: 2,
+        premium: false
     }
+];
+
+var precio;
+var total=0;
+
+console.log("Productos: ")
+for (i = 0; i < carrito.length; i++) {
+
+    console.log(carrito[i].name);
 }
-
-function resta() {
-    if (document.getElementById("numericoUno").value === "" || document.getElementById("numericoDos").value === "") {
-        document.getElementById("texto-resultado").innerHTML = "Uno de los campos está vacío";
-        document.getElementById("valor-resultado").innerHTML = "";
-    } else {
-        var num1 = parseFloat(document.getElementById("numericoUno").value);
-        var num2 = parseFloat(document.getElementById("numericoDos").value);
-
-        document.getElementById("texto-resultado").innerHTML = "El resultado de la resta es ";
-        document.getElementById("valor-resultado").innerHTML = num1 - num2;
-    }
+console.log("\nEliminamos id 54657: ")
+for (i = 0; i < carrito.length; i++) {
+    if (carrito[i].id === 54657) carrito.splice(i, 1);
+    console.log(carrito[i].name);
 }
-
-function multiplica() {
-    if (document.getElementById("numericoUno").value === "" || document.getElementById("numericoDos").value === "") {
-        document.getElementById("texto-resultado").innerHTML = "Uno de los campos está vacío";
-        document.getElementById("valor-resultado").innerHTML = "";
-    } else {
-        var num1 = parseFloat(document.getElementById("numericoUno").value);
-        var num2 = parseFloat(document.getElementById("numericoDos").value);
-
-        document.getElementById("texto-resultado").innerHTML = "El resultado de la multiplicación es ";
-        document.getElementById("valor-resultado").innerHTML = num1 * num2;
-    }
+console.log("\n");
+for (i = 0; i < carrito.length; i++) {
+    precio = carrito[i].price * carrito[i].count;
+    console.log("El precio de", carrito[i].name, "es:", precio);
+    total += precio;
 }
+console.log("El precio total es:", total);
+console.log("\n");
 
-function divide() {
-    if (document.getElementById("numericoUno").value === "" || document.getElementById("numericoDos").value === "") {
-        document.getElementById("texto-resultado").innerHTML = "Uno de los campos está vacío";
-        document.getElementById("valor-resultado").innerHTML = "";
-    } else {
-        var num1 = parseFloat(document.getElementById("numericoUno").value);
-        var num2 = parseFloat(document.getElementById("numericoDos").value);
-
-        document.getElementById("texto-resultado").innerHTML = "El resultado de la división es ";
-        document.getElementById("valor-resultado").innerHTML = num1 / num2;
-    }
+for (i = 0; i < carrito.length; i++) {
+    if (carrito[i].premium === true) console.log("El producto", carrito[i].name, "es prime.");    
 }
